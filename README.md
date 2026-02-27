@@ -33,30 +33,3 @@ Language: Kotlin
 Target: Kotlin Native / JVM (Console Application)
 
 Pattern: Repository Pattern & Use Cases
-
-🚀 How to Run
-Clone the repository:
-
-Bash
-git clone https://github.com/HalaAhmed02/Cairo_Metro.git
-Build the project: (Assuming you use Gradle)
-
-Bash
-./gradlew build
-Run the App:
-
-Bash
-./gradlew run
-📸 Sample Output
-Plaintext
-Enter Start Station: Helwan
-Enter Destination: Dokki
-
---- Route Found ---
-Path: Helwan -> ... -> Sadat (Switch to Line 2) -> Opera -> Dokki
-Total Stations: 22
-Estimated Time: 45 mins
-Fare: 15 EGP
-💡 نصيحة زيادة:
-في الـ GitHub، في الجزء الـ About (على اليمين)، حطي الكلمات دي كـ Tags:
-kotlin clean-architecture bfs-algorithm data-structures console-app cairo-metro

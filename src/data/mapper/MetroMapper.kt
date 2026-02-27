@@ -5,22 +5,29 @@ import domain.model.MetroLine
 import domain.model.Station
 
 object MetroMapper {
+
     fun toDomain(dto: StationDto): Station {
+
         return Station(
             id = dto.id,
             name = dto.name,
-            order = dto.order,
-            is_transfer = dto.is_transfer,
             line = dto.line.toMetroLine(),
-            transferLines = dto.transferLines.map { it.toMetroLine() },
+            order = dto.order,
+            is_transfer= dto.is_transfer,
+            transferLines = dto.transferLines
+                ?.map { it.toMetroLine() }
+                ?: emptyList()
         )
     }
 
+
     private fun String.toMetroLine(): MetroLine =
         when (this.trim().uppercase()) {
-             "FIRST LINE" -> MetroLine.LINE_1
-             "SECOND LINE" -> MetroLine.LINE_2
-             "THIRD LINE" -> MetroLine.LINE_3
-            else -> MetroLine.LINE_0
+
+            "LINE_1", "FIRST LINE", "1" -> MetroLine.LINE_1
+            "LINE_2", "SECOND LINE", "2" -> MetroLine.LINE_2
+            "LINE_3", "THIRD LINE", "3" -> MetroLine.LINE_3
+
+            else -> throw IllegalArgumentException("Unknown line: $this")
         }
 }
